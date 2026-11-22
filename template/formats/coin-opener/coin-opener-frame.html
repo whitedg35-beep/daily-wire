@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>THE DAILY WIRE — Coin-Opener Frame Skeleton</title>
+<!-- ============================================================
+     FRAME SKELETON — FORMAT: COIN-OPENER (the waking coin)
+     THE BOX, AS A SEQUENCE. The seven beats are FRAME and never
+     change (see coin-opener-frame.css for the beat law). Every
+     beat carries a PIECE DROP ZONE — swap the pieces and the
+     same sequence opens a new piece. Never rebuild the beats.
+     Scheme is a piece too: swap the scheme link below and every
+     stage changes skin — frame and pieces untouched.
+     Usage model: the package is live as-is. To run a new piece,
+     plug it in and replace the outer reel (B5 REEL SLOT).
+     Nothing else moves. See ../../PLUG-IN.md.
+     ============================================================ -->
+<link rel="stylesheet" href="../../schemes/wire-pink-teal.css">
+<link rel="stylesheet" href="coin-opener-frame.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- BEAT B0–B1 FRAME: newspaper stage + shadow sweep -->
+  <div class="stage-page">
+    <!-- PIECE DROP ZONE: newspaper issue — the assembled edition
+         (e.g. ../../daily-wire-newspaper.html), seated full-frame -->
+    <div class="stage-shadow"></div>
+    <!-- the gold coin rests on the page, then falls into place -->
+  </div>
+
+  <!-- BEAT B2–B4 FRAME: coin stage — the base. Do not edit per issue. -->
+  <div class="coin-stage">
+    <div class="coin-base">
+      <div class="coin-rim">
+        <!-- FRAME: mark placement, struck into the rim — fixed -->
+        <div class="coin-mark-top">Live Wire Ticket&trade;</div>
+        <div class="coin-mark-bottom">Bumkus</div>
+
+        <!-- PIECE DROP ZONE: coin insert (the face; B4's falling
+             face rides this piece) — pieces/piece-coin-insert.html -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT B5 FRAME: square stage — the pop opens into the square -->
+  <div class="stage-square">
+    <!-- PIECE DROP ZONE: REEL SLOT — the outer reel (video).
+         Replace the reel; the square, trim, and grammar stay. -->
+    <div class="reel-slot">Reel Slot &mdash; Replace the Outer Reel</div>
+  </div>
+
+  <!-- BEAT B6 FRAME: back line — do not edit per issue -->
+  <div class="back-line">The Wire Carried It Live &middot; <span class="pass">Pass This Ticket On</span> &middot; @vicecitywire92</div>
+
+  <!-- FRAME: footer — do not edit per issue -->
+  <footer class="footer">
+    <span>&copy; Bumkus &middot; Licensed, never sold &mdash; see LICENSE</span>
+    <span class="pass">Pass This Ticket On</span>
+  </footer>
+
+</div>
+</body>
+</html>

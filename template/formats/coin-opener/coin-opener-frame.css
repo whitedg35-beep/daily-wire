@@ -1,0 +1,175 @@
+/* ============================================================
+   FRAME CSS — FORMAT: COIN-OPENER (the waking coin)
+   THE BOX, AS A SEQUENCE. This file is the fixed stage
+   scaffold for the opener: a 1080 x 1920 vertical canvas and
+   the seven beats every opener runs, in order. DO NOT EDIT
+   PER ISSUE. A new opener swaps PIECES (the newspaper issue,
+   the coin insert, the face, the outer reel) — never this
+   file. See ../../PLUG-IN.md.
+
+   THE BEATS (frame law — timing and order never change):
+     B0 WAKE        the newspaper page fills the frame; a soft
+                    shadow sweeps over it — the dream beat,
+                    "where am I?" (0.0–1.2s)
+     B1 FALL        the coin, resting on the page, falls into
+                    its place — the hero position — and settles
+                    with a soft ring (1.2–2.2s)
+     B2 ROLL        the GOLD coin rolls in, the batch roll —
+                    real spin depth, drumroll under it
+                    (2.2–4.7s)
+     B3 TRANSFORM   mid-turn, shaking, the gold BECOMES the
+                    white marble coin — a shimmer change, never
+                    a hard cut (4.7–5.7s)
+     B4 FACE FALL   the face falls down into the medallion and
+                    settles; the opening SAYS THE NAME
+                    (5.7–7.2s)
+     B5 POP         the coin pops TOWARD the viewer and opens
+                    into the SQUARE; the outer reel plays
+                    inside the reel slot (7.2s – reel end)
+     B6 BACK LINE   the standard back closes: "THE WIRE
+                    CARRIED IT LIVE · PASS THIS TICKET ON ·
+                    @vicecitywire92" (final ~2s)
+
+   COLOR IS NOT IN THIS FILE. Every color comes from a SCHEME
+   (see ../../schemes/) — swap the scheme link and every stage
+   changes skin. Frame and pieces stay untouched. The stages
+   reuse the coin format's proportions exactly (base Ø780px,
+   rim Ø726px, insert field Ø540px at the 1080px canvas), so
+   the same coin-insert piece seats in both formats.
+   ============================================================ */
+
+/* ---------- FRAME: canvas ---------- */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Noto Serif", "Times New Roman", serif;
+  color: var(--ink);
+  background: #ffffff; /* sanctioned canvas backdrop — outside the box, not a design surface (see PLUG-IN.md) */
+}
+.page {
+  width: 1080px; height: 1920px;
+  position: relative; overflow: hidden;
+  background-color: var(--paper);
+  background-image: var(--paper-image);
+  border-top: var(--page-border-top);
+  border-bottom: var(--page-border-bottom);
+  border-left: var(--page-border-left);
+  border-right: var(--page-border-right);
+  outline: var(--page-outline);
+  outline-offset: -6px;
+  box-shadow: var(--page-inset);
+}
+
+/* ---------- FRAME: B0–B1, the newspaper stage ----------
+   The assembled newspaper issue seats here full-frame at the
+   open. The shadow sweep is a FRAME behavior (a scheme-ink
+   gradient veil passing once) — the issue piece under it is
+   content only. */
+.stage-page { position: absolute; inset: 0; }
+.stage-shadow {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 30%, var(--hero-stub-line) 50%, transparent 70%);
+}
+
+/* ---------- FRAME: B2–B4, the coin stage ----------
+   Same base law as formats/coin/: reeded edge, raised rim,
+   mark struck top, house name struck bottom. The insert drop
+   zone seats PIECE: COIN INSERT; B4's falling face is content
+   carried by the insert (the face line), never a frame edit. */
+.coin-stage { position: absolute; left: 0; right: 0; top: 420px; text-align: center; }
+.coin-base {
+  display: inline-grid; place-items: center;
+  width: 780px; height: 780px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg,
+    var(--hero-border) 0deg 2deg, var(--hero-bg) 2deg 4.5deg);
+  box-shadow: var(--hero-shadow);
+}
+.coin-rim {
+  width: 726px; height: 726px;
+  border-radius: 50%;
+  position: relative;
+  background-color: var(--hero-bg);
+  background-image: var(--hero-image);
+  border: 4px solid var(--hero-border);
+  box-shadow: inset 0 0 0 6px var(--hero-bg), inset 0 0 0 9px var(--hero-border);
+  display: grid; place-items: center;
+}
+.coin-mark-top, .coin-mark-bottom {
+  position: absolute; left: 0; right: 0; text-align: center;
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--hero-brand);
+}
+.coin-mark-top { top: 44px; font-size: 25px; }
+.coin-mark-bottom { bottom: 44px; font-size: 21px; }
+
+/* PIECE hooks — the coin-insert (identical to formats/coin/,
+   so one insert piece seats in either format). */
+.coin-insert {
+  width: 540px; height: 540px;
+  border-radius: 50%;
+  background-color: var(--slot-bg);
+  background-image: var(--slot-image);
+  border: 4px solid var(--slot-border);
+  box-shadow: inset 0 0 0 3px var(--slot-bg), inset 0 0 0 5px var(--slot-border);
+  color: var(--slot-ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 48px 56px;
+}
+.coin-insert .insert-brand {
+  font-family: "Anton", "Bebas Neue", Impact, "Noto Sans Display", sans-serif;
+  font-size: 54px; line-height: 1.05; text-transform: uppercase; color: var(--slot-brand);
+}
+.coin-insert .insert-line { font-size: 30px; font-style: italic; margin-top: 14px; }
+.coin-insert .insert-meta {
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 12px;
+  color: var(--slot-note);
+}
+
+/* ---------- FRAME: B5, the square stage + REEL SLOT ----------
+   The pop opens into the SQUARE format's box (1080 x 1080,
+   centered on the canvas). Inside it sits the REEL SLOT: the
+   outer reel's window. THE REEL IS A PIECE. The package is
+   live as-is — replace the outer reel and nothing else moves:
+   frame, scheme, trim, and motion grammar are identical
+   before and after (FRAME-EXACTNESS, see PLUG-IN.md). */
+.stage-square {
+  position: absolute; left: 0; right: 0; top: 420px;
+  width: 1080px; height: 1080px;
+  background-color: var(--paper);
+  background-image: var(--paper-image);
+  border: 3px solid var(--slot-border);
+  box-shadow: var(--hero-shadow);
+  display: grid; place-items: center;
+}
+.reel-slot {
+  width: 984px; height: 984px;
+  background: var(--slot-bg);
+  border: 2px solid var(--slot-border);
+  display: grid; place-items: center;
+  color: var(--slot-note);
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-size: 24px; letter-spacing: 0.22em; text-transform: uppercase;
+}
+
+/* ---------- FRAME: B6, the back line ---------- */
+.back-line {
+  position: absolute; left: 0; right: 0; bottom: 120px;
+  text-align: center;
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--footer-ink);
+}
+.back-line .pass { color: var(--pass-ink); }
+
+/* ---------- FRAME: footer ---------- */
+.footer {
+  position: absolute; left: 0; right: 0; bottom: 48px;
+  display: flex; justify-content: space-between; padding: 0 54px;
+  border-top: 2px solid var(--footer-rule); padding-top: 18px;
+  font-size: 22px; color: var(--footer-ink);
+}
+.footer .pass { color: var(--pass-ink); text-transform: uppercase; letter-spacing: 0.14em; }
