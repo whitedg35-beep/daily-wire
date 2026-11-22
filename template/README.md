@@ -13,6 +13,8 @@ is a piece too.
 
 ```
 template/
+  PLUG-IN.md                    THE CONTRACT — slots, piece rules,
+                                frame-exactness, surface-independence
   daily-wire-newspaper.html     assembled sample — THE DAILY WIRE, No. 2
   whited-daily-newspaper.html   assembled sample — THE WHITED DAILY, roll call
   frame/
@@ -20,12 +22,22 @@ template/
     whited-daily-frame.css      the box, Whited Daily edition (structure only)
     daily-wire-frame.html       empty box with marked piece drop zones
     whited-daily-frame.html     empty box with marked piece drop zones
-  pieces/
+  pieces/                       every piece, indexed in pieces/MANIFEST.md
     piece-headline.html         banner headline + standfirst
     piece-article.html          one story block (headline + paragraphs)
     piece-caption.html          the one-line caption under a card slot
+    piece-text-post.html        a text post — content only, any text zone
     piece-hero-ticket.html      the sideways hero ticket
+    piece-winning-ticket.html   the winning ticket — the face states the win
     piece-card-slot.html        the upright card slot
+    piece-coin-insert.html      the coin's face — drops into the coin base
+  formats/                      the same schema, other shapes — see Formats
+    poster/                     full-page Letter portrait, one big hero
+    square/                     1:1, 1080 x 1080 — feed posts
+    vertical/                   9:16, 1080 x 1920 — stories / reel covers
+    banner/                     wide 3:1, 1584 x 528 — profile / group covers
+    coin/                       the Token — base is the box, face is a piece
+    coin-opener/                the waking coin — the seven-beat opener
   schemes/
     wire-pink-teal.css          newsprint, charcoal, pink/teal rules, gold hero
     full-gold.css               foil takes the whole page
@@ -66,6 +78,117 @@ untouched. Launch day can run `full-gold`; a normal day runs
 `wire-pink-teal`; the personal paper runs `whited-silver-brass`.
 Slot dimensions are deliberately **not** scheme variables — size is
 frame law, not taste.
+
+## Formats — one schema, many shapes
+
+The schema is one system: **box, pieces, schemes — and now formats.**
+A format is just another box, shaped for a situation. Every format in
+`formats/` is built the same way as the newspaper: a frame CSS + frame
+skeleton with the same FRAME / PIECE comment discipline, the same
+pieces from `pieces/`, and the same scheme contract — any format
+accepts any scheme file by link swap, frame and pieces untouched.
+
+**A new situation = pick a format, pick a scheme, swap the pieces.**
+
+- **Poster** (`formats/poster/`) — full-page US Letter portrait. One
+  banner headline, ONE BIG hero ticket sideways in front (the ticket
+  face scaled up for display, 7:5 ratio preserved), one caption.
+- **Square** (`formats/square/`) — 1:1, 1080 × 1080 design units, for
+  feed posts. Headline above, hero ticket sideways centered, caption
+  below.
+- **Vertical** (`formats/vertical/`) — 9:16, 1080 × 1920, for stories
+  and reel covers. Masthead strip at the top, hero ticket sideways in
+  the upper third, headline and article stacked under it.
+- **Banner** (`formats/banner/`) — wide 3:1, 1584 × 528, for profile
+  and group covers. Masthead rides left with the headline under it,
+  hero ticket sideways in front on the right.
+- **Coin** (`formats/coin/`) — the Token. See below.
+- **Coin-opener** (`formats/coin-opener/`) — the waking coin. See below.
+
+**The plug-in contract** (`PLUG-IN.md`) governs all of it: every
+slot's dimensions, the piece rules (content only, no color, no
+dimensions), the three layers (surface → scheme mask → piece),
+and the **frame-exactness rule** — plugging in a new piece
+changes only the piece, and the reels must represent the frame
+exactly. **The package is live as-is: plug the piece in, replace
+the outer reel, nothing else moves.**
+
+### The coin
+
+**The coin is a box too — the base stays, the insert changes.**
+
+The coin is the opposite of the ticket: where a ticket can't fit, the
+coin carries the mark. Same schema, round:
+
+- **The BASE is the box (FRAME).** A round blank with a reeded edge, a
+  raised rim, and the LIVE WIRE TICKET™ mark placement struck into the
+  rim — the house mark at the top placement, the house name at the
+  bottom. The base never changes between strikes.
+- **The FACE is a piece (PIECE: coin-insert).** Different faces drop
+  into the same base: a **Wire face** (the house's own coin), a
+  **recipient face** (a name and handle, struck for one person), an
+  **issue face** (a headline and number for a big issue). One base,
+  many inserts.
+- **The scheme is the metal.** Swap the scheme link and the same base
+  is struck in another metal — full gold, marble, silver-brass —
+  frame and insert untouched.
+
+**Presentation direction.** The physical inspiration is Garrett's own
+collection — a gold Buffalo-style round and PCGS-slabbed proofs: the
+coin presented seated in a slab, label on top, one face showing. The
+digital sample follows that presentation: a label strip, the coin
+seated center on the card, a caption under it. **Digital spec only for
+now** — no physical strike is specified here.
+
+**The color rule (Garrett, Nov 22, 2026).** Inserts and renders use
+ONLY the house scheme variables (`wire-pink-teal`, `full-gold`,
+`marble-gold-silver`, `whited-silver-brass`) and our own mark work.
+The collection photos are presentation inspiration ONLY — the
+slab/insert idea. **No real coin's artwork is reproduced** — no
+Buffalo, no US Mint design, nothing borrowed. The coin face is our
+LIVE WIRE TICKET™ mark in our colors, and that is what makes it ours.
+
+### The coin-opener
+
+**The opener is a format too — a box that runs in time.**
+
+The coin-opener is the house's opening sequence, seven beats,
+always in this order (the beat law lives in
+`formats/coin-opener/coin-opener-frame.css`):
+
+1. **WAKE** — the newspaper page fills the frame; a shadow
+   sweeps over it, dream-quick — *where am I?*
+2. **FALL** — the coin, resting on the page, falls into its
+   place on the page and settles.
+3. **ROLL** — the gold coin rolls in, the batch roll, real
+   spin depth, drumroll under it.
+4. **TRANSFORM** — mid-turn, shaking, the gold becomes the
+   white marble coin.
+5. **FACE FALL** — the face falls down into the medallion; the
+   opening says the name.
+6. **POP** — the coin pops toward the viewer and opens into
+   the **square**; the outer reel plays inside the reel slot.
+7. **BACK LINE** — "THE WIRE CARRIED IT LIVE · PASS THIS
+   TICKET ON · @vicecitywire92."
+
+Every beat carries pieces, not edits: the newspaper issue, the
+coin insert, the face, and the outer reel all plug in under the
+contract in `PLUG-IN.md`. The white coin is the one people learn
+to touch — the opener is built so the tap lands on it.
+
+### Piece types
+
+Beyond the newspaper's own pieces, two piece types are named
+citizens of the schema (both in `pieces/`, both in the manifest):
+
+- **Winning ticket** (`piece-winning-ticket.html`) — a ticket
+  face that states the win: the winner's name, the win line,
+  and the **night stamp** — the date of the night of the win.
+  Seats in the same hero slot as any ticket.
+- **Text post** (`piece-text-post.html`) — content only, a
+  statement and/or short lines. A text post is a first-class
+  piece: whatever it is — a text post, the coin, or the ticket —
+  it plugs into the same frame as the new situation requires.
 
 ## The spec
 
@@ -134,11 +257,41 @@ Both assembled samples were rendered and measured:
   the papers' own (No. 2's "THE BRIDGE DOESN'T CONNECT" leads the sample);
   no placeholder text anywhere; no other paper's name or styling is used —
   the layout mechanics are the only borrowed idea, and the design is ours.
+- Coin sample (`formats/coin/daily-wire-coin.html`, FULL GOLD scheme,
+  Wire face) rendered at exactly **1080 × 1080 px** and read in full:
+  rim mark reads exactly LIVE WIRE TICKET™, insert reads exactly
+  VICE CITY WIRE, with the mini sideways ticket, "THE BRIDGE DOESN'T
+  CONNECT" and "No. 0002" on the face; nothing clipped; every color on
+  the render traces to a `full-gold` scheme variable; no real coin's
+  artwork appears anywhere in it.
+- Format samples (all Daily Wire, `wire-pink-teal` scheme) rendered
+  and read in full, Nov 22, 2026: poster **1275 × 1650 px** (Letter
+  at 150 DPI), square **1080 × 1080 px**, vertical **1080 × 1920 px**,
+  banner **1584 × 528 px**. Every render: masthead reads exactly
+  THE DAILY WIRE, ticket face reads exactly LIVE WIRE TICKET™ ·
+  VICE CITY WIRE, headline reads exactly "THE BRIDGE DOESN'T
+  CONNECT", hero ticket sideways and in front, nothing clipped or
+  overlapping.
+
+- Completeness pass (Nov 22, 2026): the plug-in contract
+  (`PLUG-IN.md`), the pieces manifest (`pieces/MANIFEST.md`), the
+  text-post and winning-ticket pieces, and the coin-opener format
+  were added. Coin-opener sample rendered at exactly
+  **1080 × 1920 px** and read in full: marble scheme, reel slot
+  labeled with the issue's reel, back line verbatim, footer
+  correct. Regression renders after the naming pass (public
+  pieces carry **Bumkus**, the LLC — never "Bumkus IP"): coin
+  sample **1080 × 1080 px**, rim bottom mark reads exactly
+  BUMKUS; newspaper sample **1275 × 1650 px** — dimensions
+  unchanged. Static audits: all five schemes define the identical
+  46-variable set; every variable the coin-opener frame reads is
+  in that contract; zero hard-coded colors and zero inline styles
+  in `pieces/`.
 
 ## Ownership
 
 The newspaper template — both editions' frames, the ticket-slot frames,
-the sideways hero treatment, the pieces system, and the schemes — is a
-design of the house. **© Bumkus IP · Licensed, never sold — see the
+the sideways hero treatment, the pieces system, the schemes, the format
+boxes, and the coin (base and inserts) — is a design of the house. **© Bumkus · Licensed, never sold — see the
 repository LICENSE.** The papers are ours: The Daily Wire is Vice City
 Wire's newspaper; The Whited Daily is Garrett Whited's personal paper.
