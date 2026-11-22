@@ -32,6 +32,8 @@ The newspaper is also the raw material of the **LIVE WIRE TICKET™**: a Daily W
 
 See [FORMAT.md](FORMAT.md) for how an issue is built — and how an issue becomes a ticket.
 
+**It's live — you just replace the outer reel.** The full template package (frame, pieces, schemes, all formats, and the plug-in contract) lives in [template/](template/); see [template/PLUG-IN.md](template/PLUG-IN.md) for how pieces sit in and plug in.
+
 ## License
 
-Covered under the house licensing framework — see [LICENSE](LICENSE). The designs are licensed, never sold; use requires written permission. Ownership: Bumkus IP.
+Covered under the house licensing framework — see [LICENSE](LICENSE). The designs are licensed, never sold; use requires written permission. Ownership: Bumkus.

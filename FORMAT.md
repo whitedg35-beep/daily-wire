@@ -15,6 +15,8 @@ The newspaper is the ticket program's raw material:
 2. The ticket pushes in (~2s, drumroll/hype), then a white-flash "amperage" cut wires straight into the reel.
 3. The ticket back closes: "THE WIRE CARRIED IT LIVE" · follow @vicecitywire92 · PASS THIS TICKET ON.
 4. From Nov 22, 2026, the newsletter reels open with the ticket going from CRINKLED to OPEN into the reel.
+5. The **coin-opener** is the opening sequence format: the newspaper wakes under a passing shadow, the coin falls into place, rolls gold, shakes into marble, the face falls into the medallion, and it pops open into the square with the reel inside — then the back line. Full spec: template/formats/coin-opener/ and template/PLUG-IN.md.
+6. A **winning ticket** is a ticket whose face states the win — winner's name, win line, and the night stamp of the night of the win.
 
 Ticket template and license: https://github.com/whitedg35-beep/live-wire-ticket
 
@@ -22,4 +24,4 @@ Ticket template and license: https://github.com/whitedg35-beep/live-wire-ticket
 Posted plain, the cards are the operation's diary. As a format, they're a product: any clipper, streamer, or community can run their own Daily Wire under license — their news, our press.
 
 ## License
-Covered under the house licensing framework — see LICENSE. Licensed, never sold; use requires written permission. Ownership: Bumkus IP.
+Covered under the house licensing framework — see LICENSE. Licensed, never sold; use requires written permission. Ownership: Bumkus.
