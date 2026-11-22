@@ -1,0 +1,57 @@
+/* ============================================================
+   SCHEME: WIRE PINK–TEAL
+   The Daily Wire's home colors: newsprint off-white, charcoal
+   ink, the pink rule on the left and the teal rule on the right
+   (the proper Vice City colors), gold foil bar under the
+   masthead, and a FULL GOLD hero ticket.
+   A scheme is a PIECE: link this file before the frame CSS and
+   the whole box wears it. Frame and pieces untouched.
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-image: none;
+  --page-border-top: 2.5pt solid #1a1a1a;
+  --page-border-bottom: 2.5pt solid #1a1a1a;
+  --page-border-left: 6pt solid #ec4899;
+  --page-border-right: 6pt solid #14b8a6;
+  --page-outline: none;
+  --page-inset: inset 0 0 0 2pt #f4f1ea, inset 0 0 0 3pt #1a1a1a;
+  --masthead-ink: #1a1a1a;
+  --bar-gradient: linear-gradient(90deg, #8a6420, #d4af37 30%, #f6e27a 50%, #d4af37 70%, #8a6420);
+  --banner-bg: #1a1a1a;
+  --banner-ink: #f4f1ea;
+  --banner-mid: #f6e27a;
+  --banner-border: transparent;
+  --divider: #1a1a1a;
+  --footer-rule: #1a1a1a;
+  --footer-ink: #1a1a1a;
+  --pass-ink: #1a1a1a;
+  --headline-ink: #1a1a1a;
+  --standfirst-ink: #1a1a1a;
+  --shaped-bg: #1a1a1a;
+  --shaped-ink: #f6e27a;
+  --shaped-edge: #ec4899;
+  --hero-bg: #d4af37;
+  --hero-image: linear-gradient(135deg, #f6e27a 0%, #d4af37 38%, #b8860b 62%, #f6e27a 100%);
+  --hero-border: #8a6420;
+  --hero-ink: #1a1a1a;
+  --hero-brand: #1a1a1a;
+  --hero-micro: #1a1a1a;
+  --hero-stub-line: rgba(26, 26, 26, 0.6);
+  --hero-notch: #f4f1ea;
+  --hero-notch-line: rgba(26, 26, 26, 0.35);
+  --hero-shadow: 0 10px 20px rgba(26, 26, 26, 0.38);
+  --slot-border: #1a1a1a;
+  --slot-edge-l: #ec4899;
+  --slot-edge-r: #14b8a6;
+  --slot-inset: none;
+  --slot-bg: #efe9dc;
+  --slot-image: repeating-linear-gradient(0deg, transparent, transparent 11pt, rgba(26, 26, 26, 0.045) 11pt, rgba(26, 26, 26, 0.045) 12pt);
+  --slot-ink: #1a1a1a;
+  --slot-brand: #1a1a1a;
+  --slot-note: #1a1a1a;
+  --slot-stub-line: rgba(26, 26, 26, 0.6);
+  --caption-ink: #1a1a1a;
+  --article-h-ink: #1a1a1a;
+}
