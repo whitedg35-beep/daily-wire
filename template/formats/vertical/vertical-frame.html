@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>THE DAILY WIRE — Vertical Frame Skeleton</title>
+<!-- ============================================================
+     FRAME SKELETON — FORMAT: VERTICAL
+     THE BOX, EMPTY, VERTICAL SHAPE. 9:16, 1080 x 1920, for
+     stories and reel covers: masthead strip at the top, hero
+     ticket sideways in front in the upper third, headline and
+     article stacked under it. Everything marked FRAME is
+     fixed and never changes; everything marked PIECE DROP
+     ZONE is where a piece from ../../pieces/ goes.
+     A new vertical = this box + swapped pieces. Never rebuild.
+     Scheme is a piece too: swap the scheme link below and the
+     whole box changes color — frame and pieces untouched.
+     ============================================================ -->
+<link rel="stylesheet" href="../../schemes/wire-pink-teal.css">
+<link rel="stylesheet" href="vertical-frame.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- FRAME: masthead strip — do not edit per issue -->
+  <header class="masthead">
+    <h1 class="masthead-title">THE DAILY WIRE</h1>
+    <div class="gold-bar"></div>
+    <div class="sub-banner">
+      <span>Vice City Wire &middot; Leonida</span>
+      <span class="sb-mid">Vertical &mdash; Issue Line</span>
+      <span>@vicecitywire92</span>
+    </div>
+  </header>
+
+  <!-- PIECE DROP ZONE: hero ticket — pieces/piece-hero-ticket.html -->
+
+  <!-- FRAME: the stack — do not edit per issue -->
+  <main class="stack">
+    <!-- PIECE DROP ZONE: headline (banner) — pieces/piece-headline.html -->
+    <!-- PIECE DROP ZONE: article(s) — pieces/piece-article.html -->
+    <!-- PIECE DROP ZONE: caption — pieces/piece-caption.html -->
+  </main>
+
+  <!-- FRAME: footer — do not edit per issue -->
+  <footer class="footer">
+    <span>&copy; Bumkus &middot; Licensed, never sold &mdash; see LICENSE</span>
+    <span class="pass">Pass This Ticket On</span>
+  </footer>
+
+</div>
+</body>
+</html>

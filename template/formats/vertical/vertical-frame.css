@@ -1,0 +1,187 @@
+/* ============================================================
+   FRAME CSS — FORMAT: VERTICAL (THE DAILY WIRE)
+   THE BOX, VERTICAL SHAPE. 9:16, 1080 x 1920 design units,
+   for stories and reel covers: masthead strip at the top,
+   the hero ticket sideways in front in the upper third,
+   headline and article stacked under it. DO NOT EDIT PER
+   ISSUE — a new vertical swaps PIECES (see ../../pieces/),
+   never this file.
+   COLOR IS NOT IN THIS FILE. Every color comes from a SCHEME
+   (see ../../schemes/) — the same variable contract as every
+   other box in the package, so this format accepts ANY scheme
+   file by link swap. Frame and pieces stay untouched.
+   Screen format: the canvas IS the page — 1080 x 1920 px,
+   no @page, no print margins. Render at window 1080x1920,
+   device scale 1, and the PNG is the cover.
+   The hero ticket keeps the sideways 7:5 ratio (920 x 657).
+   ============================================================ */
+
+/* ---------- FRAME: page (the vertical canvas) ---------- */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Noto Serif", "Times New Roman", serif;
+  color: var(--ink);
+  background: #ffffff;
+}
+.page {
+  width: 1080px; height: 1920px;
+  position: relative; overflow: hidden;
+  background-color: var(--paper);
+  background-image: var(--paper-image);
+  border-top: var(--page-border-top);
+  border-bottom: var(--page-border-bottom);
+  border-left: var(--page-border-left);
+  border-right: var(--page-border-right);
+  outline: var(--page-outline);
+  outline-offset: -10px;
+  box-shadow: var(--page-inset);
+  padding: 52px 64px 48px;
+}
+
+/* ---------- FRAME: masthead strip (top) ---------- */
+.masthead { text-align: center; }
+.masthead-title {
+  /* Blackletter stack — system fonts only, nothing hotlinked.
+     Local render falls back to Noto Serif Display Black (heavy serif).
+     On a system with a true blackletter face installed, it is picked up first. */
+  font-family: "Old English Text MT", "Cloister Black", "UnifrakturMaguntia",
+               "Noto Serif Display Black", "Noto Serif Display", serif;
+  font-weight: 900;
+  font-size: 80px;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  margin: 0;
+  color: var(--masthead-ink);
+}
+.gold-bar {
+  height: 8px; margin: 10px 0 0;
+  background: var(--bar-gradient);
+}
+.sub-banner {
+  margin-top: 9px;
+  background: var(--banner-bg);
+  color: var(--banner-ink);
+  border-top: 1px solid var(--banner-border);
+  border-bottom: 1px solid var(--banner-border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 8px 18px;
+}
+.sub-banner .sb-mid { color: var(--banner-mid); }
+
+/* ---------- FRAME: the stack (headline + articles under the hero) ---------- */
+.stack { margin-top: 84px; }
+.stack .piece-article + .piece-article {
+  margin-top: 44px;
+  border-top: 1px solid var(--divider);
+  padding-top: 40px;
+}
+
+/* ---------- FRAME: footer ---------- */
+.footer {
+  position: absolute; left: 64px; right: 64px; bottom: 40px;
+  border-top: 3px solid var(--footer-rule);
+  padding-top: 10px;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 19px; color: var(--footer-ink);
+}
+.footer .pass {
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: 21px;
+  color: var(--pass-ink);
+}
+
+/* ============================================================
+   PIECES — styling hooks. The pieces themselves live in
+   ../../pieces/ and swap per issue; their look comes from
+   here and from the scheme's variables.
+   ============================================================ */
+
+/* ---------- PIECE: hero ticket (sideways, in front, upper third) ---------- */
+.hero-wrap { position: relative; z-index: 6; margin-top: 58px; text-align: center; }
+.hero-ticket {
+  display: inline-flex;
+  width: 920px; height: 657px;   /* the sideways card at story scale — 7:5 ratio kept */
+  transform: rotate(-1deg);
+  box-shadow: var(--hero-shadow);
+  background-color: var(--hero-bg);
+  background-image: var(--hero-image);
+  color: var(--hero-ink);
+  border: 3px solid var(--hero-border);
+  text-align: left;
+}
+.hero-ticket .ticket-main { flex: 1; padding: 46px 36px 34px 52px; position: relative; }
+.hero-ticket .ticket-brand {
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-size: 21px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--hero-brand);
+}
+.hero-ticket .ticket-headline {
+  font-family: "Anton", "Bebas Neue", Impact, "Noto Sans Display", sans-serif;
+  font-weight: 900; font-stretch: condensed;
+  font-size: 66px; line-height: 1.05; text-transform: uppercase;
+  margin: 24px 0 20px;
+}
+.hero-ticket .ticket-meta { font-size: 27px; font-weight: 700; letter-spacing: 0.06em; }
+.hero-ticket .ticket-micro {
+  position: absolute; bottom: 32px; left: 52px; right: 28px;
+  font-family: "Noto Sans Display", Arial, sans-serif;
+  font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--hero-micro);
+}
+.hero-ticket .ticket-stub {
+  width: 186px; flex: none;
+  border-left: 3px dashed var(--hero-stub-line);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-ticket .ticket-stub::before,
+.hero-ticket .ticket-stub::after {
+  content: ""; position: absolute; left: -23px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--hero-notch); border: 2px solid var(--hero-notch-line);
+}
+.hero-ticket .ticket-stub::before { top: -24px; }
+.hero-ticket .ticket-stub::after { bottom: -24px; }
+.hero-ticket .stub-text {
+  writing-mode: vertical-rl;
+  font-family: "Noto Sans Display", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--hero-brand);
+}
+
+/* ---------- PIECE: headline (banner) — leads the stack ---------- */
+.piece-headline { text-align: center; }
+.piece-headline h1 {
+  font-family: "Anton", "Bebas Neue", Impact, "Noto Sans Display", "Arial Narrow Bold", sans-serif;
+  font-weight: 900; font-stretch: condensed;
+  font-size: 68px; line-height: 1.04; letter-spacing: 0.005em;
+  text-transform: uppercase; margin: 0;
+  color: var(--headline-ink);
+}
+.piece-headline .standfirst {
+  font-size: 27px; font-style: italic; margin: 14px 40px 0;
+  color: var(--standfirst-ink);
+}
+
+/* ---------- PIECE: article — stacked, full width ---------- */
+.piece-article { font-size: 27px; line-height: 1.42; text-align: justify; }
+.piece-article h3 {
+  font-family: "Anton", "Bebas Neue", Impact, "Noto Sans Display", sans-serif;
+  font-weight: 900; font-stretch: condensed;
+  font-size: 36px; line-height: 1.12; text-transform: uppercase;
+  margin: 0 0 14px; text-align: left;
+  color: var(--article-h-ink);
+}
+.piece-article p { margin: 0 0 16px; }
+.piece-article .dateline { font-weight: 700; text-transform: uppercase; }
+
+/* ---------- PIECE: caption ---------- */
+.piece-caption {
+  font-size: 22px; font-style: italic; text-align: center;
+  color: var(--caption-ink);
+  margin: 40px 60px 0;
+}
