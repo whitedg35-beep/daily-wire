@@ -37,3 +37,7 @@ See [FORMAT.md](FORMAT.md) for how an issue is built — and how an issue become
 ## License
 
 Covered under the house licensing framework — see [LICENSE](LICENSE). The designs are licensed, never sold; use requires written permission. Ownership: Bumkus.
+
+## Packages
+
+The template machinery lives in a private press. What the world gets is packages — minted, numbered pieces (tickets, coins, editions) formed on this schema and licensed, never sold. The showroom stays public; the forming stays ours.
